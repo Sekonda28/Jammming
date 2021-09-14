@@ -1,21 +1,35 @@
+import React from 'react'
+import './App.css'
+import SearchResults from '../SearchResults/SearchResults'
+import Playlist from '../Playlist/Playlist'
+import SearchBar from '../SearchBar/SearchBar'
 
-import './App.css';
+class App extends React.Component() {
 
-function App() {
+constructor(props){
+  super(props);
+  this.state = {searchResults:[{
+    name: "Let It Be",
+    artist: "Beatles",
+    album: "Let It Be",
+    id: "1234"
+  }
+  ]};
+};
+
   render(){
   return (
 <div>
   <h1>Ja<span className="highlight">mmm</span>ing</h1>
   <div className="App">
-    <!-- Add a SearchBar component -->
+    <SearchBar />
     <div className="App-playlist">
-      <!-- Add a SearchResults component -->
-      <!-- Add a Playlist component -->
+      <SearchResults searchResults = {this.state.searchResults}/>
+      <Playlist />
     </div>
   </div>
 </div>
   );
 }
 }
-
-export default App;
+export default App
